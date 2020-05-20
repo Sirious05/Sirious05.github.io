@@ -1,0 +1,44 @@
+.overlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0, .56);
+}  
+.modal{
+    max-width: 380px;
+    min-height: 400px;
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__title{
+        color: #0d0d0d;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__descr{
+        color: #0d0d0d;
+        font-size: 15px;
+        font-weight: 500;
+        color: #0d0d0d;
+        margin-top: 10px;
+    }
+     &_mini {
+        min-height: 140px;
+    }
+}
+#consultation, #order, #thanks {
+    display: none;
+}
+.modal__close{
+    font-size: 40px;
+    position: absolute;
+    top: -20px;
+    right: -35px;
+    color: $main-color;
+}

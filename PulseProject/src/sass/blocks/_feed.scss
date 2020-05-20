@@ -1,0 +1,42 @@
+.feed{
+    margin-bottom: 71px;
+    min-height: 980px;
+    &__title{
+        margin-bottom: 70px;
+    }
+    &__wrapper{
+        margin: 0 auto;
+    }
+    &__inner{
+        display: flex;
+        &:nth-child(2){
+            margin: 100px 0;
+        }
+    }
+    &__img{
+        display: block;
+        margin-right: 62px;
+        max-width: 169px;
+        max-height: 169px;
+        margin-top: 10px;
+    }
+    &__text{
+        max-width: 650px;
+    }
+    &__name{
+        color: #0d0d0d;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__count{
+        color: #646464;
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 10px;
+        margin-bottom: 19px;
+    }
+    &__descr{
+        color: #0d0d0d;
+        font-weight: 300;
+    }
+}
