@@ -1,11 +1,11 @@
-const gulp = require('gulp');
-const browserSync = require('browser-sync');
-const sass = require('gulp-sass');
-const cleanCSS = require('gulp-clean-css');
-const autoprefixer = require('gulp-autoprefixer');
-const rename = require("gulp-rename");
-const imagemin = require('gulp-imagemin');
-const htmlmin = require('gulp-htmlmin');
+const gulp = require('./node_modules/gulp');
+const browserSync = require('./node_modules/browser-sync/dist');
+const sass = require('./node_modules/gulp-sass');
+const cleanCSS = require('./node_modules/gulp-clean-css');
+const autoprefixer = require('./node_modules/gulp-autoprefixer');
+const rename = require("./node_modules/gulp-rename");
+const imagemin = require('./node_modules/gulp-imagemin');
+const htmlmin = require('./node_modules/gulp-htmlmin');
 
 gulp.task('server', function () {
 

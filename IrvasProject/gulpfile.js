@@ -1,8 +1,8 @@
 "use strict";
 
-const gulp = require("gulp");
-const webpack = require("webpack-stream");
-const browsersync = require("browser-sync");
+const gulp = require("./node_modules/gulp");
+const webpack = require("./node_modules/webpack-stream");
+const browsersync = require("./node_modules/browser-sync/dist");
 
 const dist = "./dist/";
 // const dist = "OSPanel\domains\MyProjects";

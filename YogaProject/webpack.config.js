@@ -1,7 +1,7 @@
 'use strict';
 
 let path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('./node_modules/uglifyjs-webpack-plugin/dist/cjs');
 
 module.exports = {
   mode: 'development',
