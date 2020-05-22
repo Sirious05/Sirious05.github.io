@@ -9,12 +9,6 @@ function slider() {
 
 
     function showSlider(n) {
-        if (sliderIndex > sliderItems.length - 1) {
-            sliderIndex = 0;
-        }
-        if (sliderIndex < 0) {
-            sliderIndex = sliderItems.length - 1;
-        }
         sliderItems.forEach(item => {
             item.classList.remove('display-block');
             item.classList.add('display-none');
