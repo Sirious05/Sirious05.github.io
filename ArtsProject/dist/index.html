@@ -30,6 +30,7 @@
 					</li>
 				</ul>
 			</div>
+			<div class="overlay"></div>
 			<div class="col-md-8 hidden-sm hidden-xs">
 				<ul class=header-menu>
 					<li>
@@ -96,14 +97,14 @@
 				</div>
 			</div>
 			<div class=row>
-				<div class=col-md-7>
+				<div class="col-md-7">
 					<div class=main-slider>
 						<div class="prev-arrow"></div>
 						<div class="next-arrow"></div>
-						<div class=main-slider-item>
+						<div class="main-slider-item animated" data-slider-animation="vertical">
 							<img src=assets/img/main-1.png alt>
 						</div>
-						<div class=main-slider-item>
+						<div class="main-slider-item animated" data-slider-animation="vertical">
 							<img src=assets/img/main-2.png alt>
 						</div>
 						<ul class="slider-dots">
@@ -116,17 +117,17 @@
 					<p class=p-heading-italic>Лучший подарок для всех</p>
 					<h1 class="wow fadeInUp">Портрет на холсте</h1>
 					<div class=row>
-						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-3">
+						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-4">
 							<p class=main-features><img src=assets/img/checked.svg alt>Гарантия минимальной цены</p>
 						</div>
-						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-3">
+						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-4">
 							<p class=main-features><img src=assets/img/checked.svg alt>На 30% дешевле конкурентов</p>
 						</div>
-						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-3">
+						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-4">
 							<p class=main-features><img src=assets/img/checked.svg alt>При заказе с сайта скидки до 30%!
 							</p>
 						</div>
-						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-3">
+						<div class="col-md-6 col-md-offset-0 col-sm-6 col-sm-offset-4">
 							<p class=main-features><img src=assets/img/checked.svg alt>Срочное изготовление за 3 часа!
 							</p>
 						</div>
@@ -524,7 +525,7 @@
 				<button class="main-slider-btn main-next-btn">
 					<img src="assets/img/right-arr.png" alt="right">
 				</button>
-				<div class=feedback-slider-item>
+				<div class="feedback-slider-item animated" data-slider-animation="horizontally">
 					<div class=col-sm-5>
 						<div class=feedback-block>
 							<img src=assets/img/feedback-1.png alt>
@@ -541,7 +542,7 @@
 						<p class=feedback-signature><span>Олег Петров,</span> д. Месягутово</p>
 					</div>
 				</div>
-				<div class=feedback-slider-item>
+				<div class="feedback-slider-item animated" data-slider-animation="horizontally">
 					<div class=col-sm-5>
 						<div class=feedback-block>
 							<img src=assets/img/feedback-2.jpg alt>
@@ -558,13 +559,14 @@
 						<p class=feedback-signature><span>Ирина Антонова,</span> г. Кисловодск</p>
 					</div>
 				</div>
-				<div class=feedback-slider-item>
+				<div class="feedback-slider-item animated" data-slider-animation="horizontally">
 					<div class=col-sm-5>
 						<div class=feedback-block>
 							<img src=assets/img/feedback-3.jpg alt>
 							<button class="button button-order button-design">Хочу так же</button>
 						</div>
 					</div>
+					
 					<div class="col-sm-5 col-sm-offset-1">
 						<p class=feedback-heading>«...Неожиданный подарок на день рождения от друзей...»</p>
 						<p class=feedback-text>Хочу поделиться впечатлениями от полученного вчера подарка. Классная
@@ -574,6 +576,11 @@
 						<p class=feedback-signature><span>Нарек Маргарян,</span> г. Великие Луки</p>
 					</div>
 				</div>
+				<ul class="feedback-slider-dots">
+					<li class="feedback-slider-dot"></li>
+					<li class="feedback-slider-dot"></li>
+					<li class="feedback-slider-dot"></li>
+				</ul>
 			</div>
 		</div>
 	</div>

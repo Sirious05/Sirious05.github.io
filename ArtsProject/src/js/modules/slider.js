@@ -10,8 +10,11 @@ const slider = () => {
             sliderItems.forEach(item => {
                 item.style.display = 'none';
                 sliderItems[i].style.display = 'block';
-                sliderItems[i].classList.add('animated');
-                sliderItems[i].classList.add('fadeInDown');
+                if (sliderItems[i].getAttribute('data-slider-animation') === 'horizontally') {
+                    sliderItems[i].classList.add('fadeInLeft');
+                } else {
+                    sliderItems[i].classList.add('fadeInDown');
+                }
             });
             sliderDots.forEach(item => {
                 item.classList.remove('slider-dot-active');
@@ -45,7 +48,7 @@ const slider = () => {
                 });
             });
         };
-        const infinitySlider = () => {
+        let infinitySlider = () => {
             sliderIndex++;
             if (sliderIndex > sliderItems.length - 1) {
                 sliderIndex = 0;
@@ -62,5 +65,6 @@ const slider = () => {
         setInterval(infinitySlider, 6000);
     };
     bindSlider('.main-slider-item', '.slider-dots', '.slider-dot', '.prev-arrow', '.next-arrow');
+    bindSlider('.feedback-slider-item', '.feedback-slider-dots', '.feedback-slider-dot', '.main-prev-btn', '.main-next-btn');
 };
 export default slider;

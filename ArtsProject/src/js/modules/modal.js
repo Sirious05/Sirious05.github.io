@@ -7,7 +7,7 @@ const modal = () => {
             windows = document.querySelectorAll('[data-modal]'),
             temporalTriggers = document.querySelectorAll('[data-temporal="true"]');
         let scrollWidth = calcScroll();
-        if (window.clientWidth <= 1024) {
+        if (window.clientWidth < 1025) {
             scrollWidth = 0;
         }
         const showModal = () => {
@@ -122,7 +122,7 @@ const modal = () => {
     bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
     bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
     calcScroll();
-    showModalByTime('.popup-consultation', 3000);
+    showModalByTime('.popup-consultation', 60000);
     openByScroll('.fixed-gift');
 };
 export default modal;
