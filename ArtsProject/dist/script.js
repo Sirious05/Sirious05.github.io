@@ -955,24 +955,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var modal = function modal() {
-  var bindModal = function bindModal(triggerSelector, contentSelector, closeSelector) {
-    var trigger = document.querySelectorAll(triggerSelector),
+  var btnPressed = false;
+
+  var bindModal = function bindModal(triggersSelector, contentSelector, closeSelector) {
+    var temporal = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+    var triggers = document.querySelectorAll(triggersSelector),
         content = document.querySelectorAll(contentSelector),
         close = document.querySelector(closeSelector),
+        windows = document.querySelectorAll('[data-modal]'),
+        temporalTriggers = document.querySelectorAll('[data-temporal="true"]'),
         scrollWidth = calcScroll();
 
     var showModal = function showModal() {
-      trigger.forEach(function (item) {
-        item.addEventListener('click', function (e) {
-          content.forEach(function (item) {
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function (e) {
+          if (e.target) {
             e.preventDefault();
-            item.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            document.body.style.marginRight = "".concat(scrollWidth, "px");
-            item.classList.remove('slideOutLeft');
-            item.classList.add('slideInLeft');
-            item.classList.add('animated');
+            temporalTriggers.forEach(function (item) {
+              item.style.marginRight = "".concat(scrollWidth, "px");
+            });
+          }
+
+          btnPressed = true;
+
+          if (temporal === true) {
+            trigger.style.display = 'none';
+            trigger.style.marginRight = "".concat(scrollWidth, "px");
+          }
+
+          content.forEach(function (item) {
+            item.style.display = "block";
+            item.classList.add('fadeIn');
+            item.classList.remove('fadeOut');
           });
+          document.body.style.overflow = "hidden";
+          document.body.style.marginRight = "".concat(scrollWidth, "px");
         });
       });
     };
@@ -980,39 +997,87 @@ var modal = function modal() {
     var hideModal = function hideModal() {
       close.addEventListener('click', function (e) {
         content.forEach(function (item) {
-          document.body.style.overflow = '';
-          document.body.style.marginRight = "0px";
-          item.classList.remove('slideInLeft');
-          item.classList.add('slideOutLeft');
+          item.style.display = "none";
+          item.classList.add('fadeOut');
+          item.classList.remove('fadeIn');
         });
+        temporalTriggers.forEach(function (item) {
+          item.style.marginRight = "0px";
+        });
+        document.body.style.overflow = "";
+        document.body.style.marginRight = "0px";
       });
     };
 
     content.forEach(function (item) {
       item.addEventListener('click', function (e) {
         if (e.target === item) {
-          document.body.style.overflow = '';
+          item.style.display = "none";
+          item.classList.add('fadeOut');
+          item.classList.remove('fadeIn');
+          document.body.style.overflow = "";
           document.body.style.marginRight = "0px";
-          item.classList.remove('slideInLeft');
-          item.classList.add('slideOutLeft');
+          temporalTriggers.forEach(function (item) {
+            item.style.marginRight = "0px";
+          });
         }
       });
     });
-
-    function calcScroll() {
-      var div = document.createElement('div');
-      div.style.overflow = 'scroll';
-      document.body.appendChild(div);
-      var scrollWidth = div.offsetWidth - div.clientWidth;
-      div.remove();
-      return scrollWidth;
-    }
-
     showModal();
     hideModal();
   };
 
+  function showModalByTime(selector, time) {
+    setTimeout(function () {
+      var modal = document.querySelector(selector);
+      var display;
+      var temporalTriggers = document.querySelectorAll('[data-temporal="true"]');
+      document.querySelectorAll('[data-modal]').forEach(function (item) {
+        if (getComputedStyle(item).display !== 'none') {
+          display = "block";
+        }
+      });
+
+      if (!display) {
+        modal.style.display = 'block';
+        modal.classList.add('fadeIn');
+        modal.classList.remove('fadeOut');
+        document.body.style.overflow = "hidden";
+        var scroll = calcScroll();
+        document.body.style.marginRight = "".concat(scroll, "px");
+        temporalTriggers.forEach(function (item) {
+          item.style.marginRight = "".concat(scroll, "px");
+        });
+      }
+    }, time);
+  }
+
+  function calcScroll() {
+    var div = document.createElement('div');
+    div.style.overflow = 'scroll';
+    document.body.appendChild(div);
+    var scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+    return scrollWidth;
+  }
+
+  function openByScroll(selector) {
+    var modal = document.querySelector(selector);
+    window.addEventListener('scroll', function () {
+      var scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+
+      if (!btnPressed && window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+        modal.click();
+      }
+    });
+  }
+
   bindModal('.button-design', '.popup-design', '.popup-design .popup-close');
+  bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close');
+  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true);
+  calcScroll();
+  showModalByTime('.popup-consultation', 3000);
+  openByScroll('.fixed-gift');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modal);
