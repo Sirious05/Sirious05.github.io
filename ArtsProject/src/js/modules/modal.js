@@ -5,8 +5,11 @@ const modal = () => {
             content = document.querySelectorAll(contentSelector),
             close = document.querySelector(closeSelector),
             windows = document.querySelectorAll('[data-modal]'),
-            temporalTriggers = document.querySelectorAll('[data-temporal="true"]'),
-            scrollWidth = calcScroll();
+            temporalTriggers = document.querySelectorAll('[data-temporal="true"]');
+        let scrollWidth = calcScroll();
+        if (window.clientWidth <= 1024) {
+            scrollWidth = 0;
+        }
         const showModal = () => {
             triggers.forEach(trigger => {
                 trigger.addEventListener('click', (e) => {
@@ -82,6 +85,9 @@ const modal = () => {
                 modal.classList.remove('fadeOut');
                 document.body.style.overflow = "hidden";
                 let scroll = calcScroll();
+                if (window.clientWidth <= 1024) {
+                    scroll = 0;
+                }
                 document.body.style.marginRight = `${scroll}px`;
                 temporalTriggers.forEach(item => {
                     item.style.marginRight = `${scroll}px`;
@@ -94,8 +100,11 @@ const modal = () => {
         const div = document.createElement('div');
         div.style.overflow = 'scroll';
         document.body.appendChild(div);
-        const scrollWidth = div.offsetWidth - div.clientWidth;
+        let scrollWidth = div.offsetWidth - div.clientWidth;
         div.remove();
+        if (window.clientWidth <= 1024) {
+            scrollWidth = 0;
+        }
         return scrollWidth;
     }
 

@@ -963,8 +963,12 @@ var modal = function modal() {
         content = document.querySelectorAll(contentSelector),
         close = document.querySelector(closeSelector),
         windows = document.querySelectorAll('[data-modal]'),
-        temporalTriggers = document.querySelectorAll('[data-temporal="true"]'),
-        scrollWidth = calcScroll();
+        temporalTriggers = document.querySelectorAll('[data-temporal="true"]');
+    var scrollWidth = calcScroll();
+
+    if (window.clientWidth <= 1024) {
+      scrollWidth = 0;
+    }
 
     var showModal = function showModal() {
       triggers.forEach(function (trigger) {
@@ -1044,6 +1048,11 @@ var modal = function modal() {
         modal.classList.remove('fadeOut');
         document.body.style.overflow = "hidden";
         var scroll = calcScroll();
+
+        if (window.clientWidth <= 1024) {
+          scroll = 0;
+        }
+
         document.body.style.marginRight = "".concat(scroll, "px");
         temporalTriggers.forEach(function (item) {
           item.style.marginRight = "".concat(scroll, "px");
@@ -1058,6 +1067,11 @@ var modal = function modal() {
     document.body.appendChild(div);
     var scrollWidth = div.offsetWidth - div.clientWidth;
     div.remove();
+
+    if (window.clientWidth <= 1024) {
+      scrollWidth = 0;
+    }
+
     return scrollWidth;
   }
 
