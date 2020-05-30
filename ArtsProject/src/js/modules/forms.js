@@ -1,12 +1,13 @@
 const forms = () => {
     const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input'),
+        upload = document.querySelectorAll('[name="upload"]'),
+        uploadName = document.querySelectorAll('.upload-name'),
         clearInputs = () => {
             inputs.forEach(item => {
                 item.value = '';
             });
         };
-    console.log(1);
     forms.forEach((item, n) => {
         item.addEventListener('submit', (e) => {
             let status = document.createElement('div');
@@ -56,11 +57,30 @@ const forms = () => {
                     setTimeout(() => {
                         status.remove();
                         img.remove();
+                        uploadName.forEach(item => {
+                            item.textContent = '';
+                        });
                         item.style.display = 'block';
                         item.classList.remove('fadeOut');
                         item.classList.add('fadeIn');
                     }, 5000);
                 });
+        });
+    });
+    upload.forEach(item => {
+        item.addEventListener('input', (e) => {
+            let dots;
+            let partsPath = item.files[0].name.split('.');
+            if (partsPath[0].length > 8) {
+                dots = true;
+            } else {
+                dots = false;
+            }
+            if (dots === true) {
+                item.previousElementSibling.textContent = item.files[0].name.slice(0, 8) + '...' + ' ' + partsPath[1];
+            } else {
+                item.previousElementSibling.textContent = item.files[0].name;
+            }
         });
     });
     async function postData(url, data) {
