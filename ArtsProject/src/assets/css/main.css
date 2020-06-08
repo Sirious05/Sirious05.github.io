@@ -416,6 +416,10 @@ h4 {
   padding: 1.5rem;
 }
 
+button[data-show-style="remove"] {
+  display: none;
+}
+
 .main .file_upload>button:before {
   content: "";
   background: url("../img/camera.svg") no-repeat center;
@@ -853,7 +857,7 @@ h4 {
   cursor: pointer;
 }
 
-.portfolio ul .active {
+.portfolio-tab-active {
   border: 1px solid #c51abb;
   color: #c51abb;
   border-radius: 50px;
@@ -880,7 +884,6 @@ h4 {
 .portfolio-no {
   text-align: center;
   font-size: 3rem;
-  display: none;
   margin: 15rem 0;
 }
 
@@ -2252,4 +2255,12 @@ h4 {
 
 .status {
   color: #c51abb;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
 }

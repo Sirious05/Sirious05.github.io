@@ -1,3 +1,6 @@
+import {
+    postData
+} from './requests';
 const forms = () => {
     const forms = document.querySelectorAll('form'),
         inputs = document.querySelectorAll('input'),
@@ -8,6 +11,22 @@ const forms = () => {
                 item.value = '';
             });
         };
+    upload.forEach(item => {
+        item.addEventListener('input', (e) => {
+            let dots;
+            let partsPath = item.files[0].name.split('.');
+            if (partsPath[0].length > 8) {
+                dots = true;
+            } else {
+                dots = false;
+            }
+            if (dots === true) {
+                item.previousElementSibling.textContent = item.files[0].name.slice(0, 8) + '...' + ' ' + partsPath[1];
+            } else {
+                item.previousElementSibling.textContent = item.files[0].name;
+            }
+        });
+    });
     forms.forEach((item, n) => {
         item.addEventListener('submit', (e) => {
             let status = document.createElement('div');
@@ -33,7 +52,9 @@ const forms = () => {
             status.textContent = statusMessage.loading;
             img.setAttribute('src', imgMessage.loading);
             const formData = new FormData(item);
-            postData('assets/server.php', formData)
+            let path;
+            item.closest('.popup-design') ? path = 'assets/design.php' : path = 'assets/server.php';
+            postData(path, formData)
                 .then(data => {
                     console.log(data);
                     status.textContent = statusMessage.success;
@@ -57,38 +78,15 @@ const forms = () => {
                     setTimeout(() => {
                         status.remove();
                         img.remove();
-                        uploadName.forEach(item => {
-                            item.textContent = '';
-                        });
                         item.style.display = 'block';
                         item.classList.remove('fadeOut');
                         item.classList.add('fadeIn');
+                        uploadName.forEach(name => {
+                            name.textContent = 'Файл не выбран';
+                        });
                     }, 5000);
                 });
         });
     });
-    upload.forEach(item => {
-        item.addEventListener('input', (e) => {
-            let dots;
-            let partsPath = item.files[0].name.split('.');
-            if (partsPath[0].length > 8) {
-                dots = true;
-            } else {
-                dots = false;
-            }
-            if (dots === true) {
-                item.previousElementSibling.textContent = item.files[0].name.slice(0, 8) + '...' + ' ' + partsPath[1];
-            } else {
-                item.previousElementSibling.textContent = item.files[0].name;
-            }
-        });
-    });
-    async function postData(url, data) {
-        let request = await fetch(`${url}`, {
-            method: 'POST',
-            body: data,
-        });
-        return await request.text();
-    }
 };
 export default forms;
