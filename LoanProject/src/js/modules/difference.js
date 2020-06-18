@@ -3,12 +3,14 @@ class Difference {
         oldWrap = null,
         newWrap = null
     }) {
-        this.oldWrap = document.querySelector(oldWrap);
-        this.newWrap = document.querySelector(newWrap);
-        this.oldItems = this.oldWrap.children;
-        this.newItems = this.newWrap.children;
-        this.oldCounter = 0;
-        this.newCounter = 0;
+        try {
+            this.oldWrap = document.querySelector(oldWrap);
+            this.newWrap = document.querySelector(newWrap);
+            this.oldItems = this.oldWrap.children;
+            this.newItems = this.newWrap.children;
+            this.oldCounter = 0;
+            this.newCounter = 0;
+        } catch (e) {}
     }
     hideList(list) {
         list.forEach((item, n) => {
@@ -33,10 +35,12 @@ class Difference {
         });
     }
     render() {
-        this.hideList(this.oldItems);
-        this.hideList(this.newItems);
-        this.showList(this.oldItems, this.oldCounter);
-        this.showList(this.newItems, this.newCounter);
+        try {
+            this.hideList(this.oldItems);
+            this.hideList(this.newItems);
+            this.showList(this.oldItems, this.oldCounter);
+            this.showList(this.newItems, this.newCounter);
+        } catch (e) {}
     }
 }
 export default Difference;

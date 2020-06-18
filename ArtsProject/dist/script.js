@@ -4539,9 +4539,6 @@ var dragDrop = function dragDrop() {
     input.addEventListener('dragenter', function (e) {
       highlight(input);
     });
-    input.addEventListener('drag', function (e) {
-      console.log(1);
-    });
     input.addEventListener('dragover', function (e) {
       highlight(input);
     });

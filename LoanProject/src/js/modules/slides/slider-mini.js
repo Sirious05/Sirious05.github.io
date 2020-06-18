@@ -35,6 +35,7 @@ class SliderMini extends Slider {
             item.addEventListener('click', () => {
                 let last = this.slides[this.slides.length - 1];
                 console.log(last);
+
                 this.container.insertBefore(last, this.slides[0]);
                 this.decorizeSlides();
             });
@@ -49,8 +50,10 @@ class SliderMini extends Slider {
         `;
     }
     render() {
-        this.optionsSlides();
-        this.bindTriggers();
+        try {
+            this.optionsSlides();
+            this.bindTriggers();
+        } catch (e) {}
     }
 }
 export default SliderMini;

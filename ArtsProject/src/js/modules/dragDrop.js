@@ -1,3 +1,5 @@
+import { construct } from "core-js/fn/reflect";
+
 const dragDrop = () => {
     const inputsFiles = document.querySelectorAll('[name="upload"]'),
         events = ['dragenter', 'drop', 'dragover', 'dragleave', 'drag'];
@@ -29,10 +31,6 @@ const dragDrop = () => {
         input.addEventListener('dragenter', (e) => {
             highlight(input);
         });
-        input.addEventListener('drag', (e) => {
-            console.log(1);
-        })
-
         input.addEventListener('dragover', (e) => {
             highlight(input);
         });

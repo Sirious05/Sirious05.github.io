@@ -7,14 +7,18 @@ class Slider {
         autoPlay = false,
         animate = false,
     }) {
-        this.container = document.querySelector(container);
-        this.slides = this.container.children;
-        this.prev = document.querySelectorAll(prev);
-        this.next = document.querySelectorAll(next);
-        this.slideIndex = 0;
-        this.activeClass = activeClass;
-        this.animate = animate;
-        this.autoPlay = autoPlay;
+        try {
+            this.container = document.querySelector(container);
+            try {
+                this.slides = this.container.children;
+            } catch (e) {}
+            this.prev = document.querySelectorAll(prev);
+            this.next = document.querySelectorAll(next);
+            this.slideIndex = 0;
+            this.activeClass = activeClass;
+            this.animate = animate;
+            this.autoPlay = autoPlay;
+        } catch (e) {}
     }
 }
 export default Slider;
