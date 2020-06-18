@@ -5769,9 +5769,16 @@ function (_Slider) {
       this.prev.forEach(function (item) {
         item.addEventListener('click', function () {
           var last = _this2.slides[_this2.slides.length - 1];
-          console.log(last);
 
           _this2.container.insertBefore(last, _this2.slides[0]);
+
+          if (_this2.slides[_this2.slides.length - 1].tagName == 'BUTTON') {
+            _this2.container.insertBefore(_this2.slides[_this2.slides.length - 1], _this2.slides[_this2.slides.length - 2]);
+          }
+
+          if (_this2.slides[0].tagName == 'BUTTON') {
+            _this2.container.insertBefore(_this2.slides[0], _this2.slides[_this2.slides.length - 2]);
+          }
 
           _this2.decorizeSlides();
         });

@@ -8,7 +8,7 @@ import timer from './modules/timer';
 import imagesModal from './modules/imagesModal';
 window.addEventListener('DOMContentLoaded', () => {
     const dataModal = {};
-    const deadline = '2020-06-15';
+    const deadline = '2020-10-03';
     modal();
     tabs();
     forms(dataModal);

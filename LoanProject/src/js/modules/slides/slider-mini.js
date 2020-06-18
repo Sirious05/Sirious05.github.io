@@ -34,14 +34,13 @@ class SliderMini extends Slider {
         this.prev.forEach(item => {
             item.addEventListener('click', () => {
                 let last = this.slides[this.slides.length - 1];
-                this.container.appendChild(this.slides[0]);
-                if (this.slides[0].tagName == 'BUTTON') {
-                    this.container.insertAdjacentHTML('beforeend', this.slides[0]);
-                }
-                if (this.slides[1].tagName == 'BUTTON') {
-                    this.container.insertAdjacentHTML('beforeend', this.slides[1]);
-                }
                 this.container.insertBefore(last, this.slides[0]);
+                if (this.slides[this.slides.length - 1].tagName == 'BUTTON') {
+                    this.container.insertBefore(this.slides[this.slides.length - 1], this.slides[this.slides.length - 2]);
+                }
+                if (this.slides[0].tagName == 'BUTTON') {
+                    this.container.insertBefore(this.slides[0], this.slides[this.slides.length - 2]);
+                }
                 this.decorizeSlides();
             });
         });
