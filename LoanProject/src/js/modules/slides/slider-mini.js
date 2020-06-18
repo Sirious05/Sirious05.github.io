@@ -35,7 +35,12 @@ class SliderMini extends Slider {
             item.addEventListener('click', () => {
                 let last = this.slides[this.slides.length - 1];
                 console.log(last);
-
+                if (this.slides[0].tagName == 'BUTTON') {
+                    this.container.appendChild(this.slides[0]);
+                }
+                if (this.slides[1].tagName == 'BUTTON') {
+                    this.container.appendChild(this.slides[1]);
+                }
                 this.container.insertBefore(last, this.slides[0]);
                 this.decorizeSlides();
             });
