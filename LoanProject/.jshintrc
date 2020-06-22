@@ -2,7 +2,7 @@
     "camelcase": true,
     "indent": 2,
     "quotmark": false,
-    "maxlen": 1800,
+    "maxlen": 180000,
     "trailing": true,
     "curly": true,
     "strict": false,
