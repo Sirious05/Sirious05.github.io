@@ -5117,15 +5117,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_videoPlayer_videoPlayer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/videoPlayer/videoPlayer */ "./src/js/modules/videoPlayer/videoPlayer.js");
 /* harmony import */ var _modules_difference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/difference */ "./src/js/modules/difference.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+
 
 
 
 
 
 window.addEventListener('DOMContentLoaded', function () {
-  if (document.documentElement.clientWidth > 1025) {
-    'use strict';
+  var windowWidth = document.documentElement.clientWidth;
 
+  if (windowWidth >= 1026) {
     var previewMainSlider = new _modules_slides_slider_main__WEBPACK_IMPORTED_MODULE_0__["default"]({
       container: '.page',
       next: '.next'
@@ -5174,6 +5176,11 @@ window.addEventListener('DOMContentLoaded', function () {
       path: 'assets/question.php'
     });
     sendResourse.render();
+    var modulesMarketingAccordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_5__["default"]({
+      triggers: '.module__info-show',
+      content: '.msg'
+    });
+    modulesMarketingAccordion.render();
   } else {
     console.log(document.documentElement.clientWidth);
     var inDeveloping = document.createElement('div');
@@ -5184,6 +5191,89 @@ window.addEventListener('DOMContentLoaded', function () {
     inDeveloping.cssText = "\n        color: black;\n        text-align: center;\n        margin-top: 50%;\n        display: block;\n        font-size: 20px;";
   }
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordion.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Accordion =
+/*#__PURE__*/
+function () {
+  function Accordion(_ref) {
+    var _ref$triggers = _ref.triggers,
+        triggers = _ref$triggers === void 0 ? null : _ref$triggers,
+        _ref$content = _ref.content,
+        content = _ref$content === void 0 ? null : _ref$content;
+
+    _classCallCheck(this, Accordion);
+
+    this.triggers = document.querySelectorAll(triggers);
+    this.content = document.querySelectorAll(content);
+  }
+
+  _createClass(Accordion, [{
+    key: "hideContent",
+    value: function hideContent() {
+      this.content.forEach(function (item) {
+        item.style.display = 'none';
+      });
+    }
+  }, {
+    key: "showContent",
+    value: function showContent() {
+      var _this = this;
+
+      var counter = 0;
+      this.triggers.forEach(function (trigger, n) {
+        trigger.addEventListener('click', function (e) {
+          counter++;
+
+          _this.hideContent();
+
+          _this.content[n].style.display = 'block';
+
+          if (counter % 2 === 0) {
+            _this.content[n].style.display = 'block';
+
+            if (_this.content[n].classList.contains('fadeOutLeft')) {
+              _this.content[n].classList.remove('animated', 'fadeOutLeft');
+            }
+
+            _this.content[n].classList.add('animated', 'fadeInLeft');
+          } else {
+            _this.content[n].style.display = 'none';
+          }
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.showContent();
+    }
+  }]);
+
+  return Accordion;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Accordion);
 
 /***/ }),
 
@@ -5230,7 +5320,7 @@ function () {
   _createClass(Difference, [{
     key: "hideList",
     value: function hideList(list) {
-      list.forEach(function (item, n) {
+      list.forEach(function (item) {
         item.style.display = 'none';
         item.classList.remove('animated', 'fadeInLeft');
         list[list.length - 1].style.display = 'flex';
@@ -5240,7 +5330,7 @@ function () {
   }, {
     key: "showList",
     value: function showList(list, counter) {
-      list[list.length - 1].addEventListener('click', function (e) {
+      list[list.length - 1].addEventListener('click', function () {
         counter++;
 
         if (counter === list.length - 2) {
@@ -5248,7 +5338,7 @@ function () {
           setInterval(function () {
             list[list.length - 1].style.display = 'none';
             list[list.length - 1].classList.remove('animated', 'fadeOutLeft');
-          }, 300);
+          }, 500);
         }
 
         list[counter].style.display = 'flex';
@@ -5306,7 +5396,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-new _validateInputs__WEBPACK_IMPORTED_MODULE_5__["default"]({
+var inputValidate = new _validateInputs__WEBPACK_IMPORTED_MODULE_5__["default"]({
   inputsNumber: 'input[name="phone"]',
   inputsString: 'input[name="name"]'
 });
@@ -5328,7 +5418,9 @@ function () {
       this.forms = document.querySelectorAll(form);
       this.inputs = document.querySelectorAll(input);
       this.path = path;
-    } catch (e) {}
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   _createClass(SendResourse, [{
@@ -5345,10 +5437,7 @@ function () {
 
       this.inputs.forEach(function (input) {
         input.addEventListener('input', function () {
-          new _validateInputs__WEBPACK_IMPORTED_MODULE_5__["default"]({
-            inputsNumber: 'input[name="phone"]',
-            inputsString: 'input[name="name"]'
-          }).render();
+          inputValidate.render();
         });
       });
       this.forms.forEach(function (form) {

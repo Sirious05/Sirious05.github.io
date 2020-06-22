@@ -1925,7 +1925,8 @@ a:active {
     padding: 15px 18px 17px 18px;
     display: flex;
     justify-content: center;
-    height: 48px
+    height: 48px;
+    width: 167px;
 }
 
 .module__info-book .download svg {
@@ -2071,6 +2072,7 @@ a:active {
     font-size: 20px;
     color: #fff;
 }
+
 
 @media (max-width: 1200px) {
     .showup__content {

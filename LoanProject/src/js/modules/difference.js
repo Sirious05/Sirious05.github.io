@@ -13,7 +13,7 @@ class Difference {
         } catch (e) {}
     }
     hideList(list) {
-        list.forEach((item, n) => {
+        list.forEach((item) => {
             item.style.display = 'none';
             item.classList.remove('animated', 'fadeInLeft');
             list[list.length - 1].style.display = 'flex';
@@ -21,14 +21,14 @@ class Difference {
         });
     }
     showList(list, counter) {
-        list[list.length - 1].addEventListener('click', (e) => {
+        list[list.length - 1].addEventListener('click', () => {
             counter++;
             if (counter === list.length - 2) {
                 list[list.length - 1].classList.add('animated', 'fadeOutLeft');
                 setInterval(() => {
                     list[list.length - 1].style.display = 'none';
                     list[list.length - 1].classList.remove('animated', 'fadeOutLeft');
-                }, 300);
+                }, 500);
             }
             list[counter].style.display = 'flex';
             list[counter].classList.add('animated', 'fadeInLeft');

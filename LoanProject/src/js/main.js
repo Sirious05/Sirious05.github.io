@@ -3,9 +3,10 @@ import MiniSlider from './modules/slides/slider-mini';
 import VideoPlayer from './modules/videoPlayer/videoPlayer';
 import Difference from './modules/difference';
 import SendResourse from './modules/forms';
+import Accordion from './modules/accordion';
 window.addEventListener('DOMContentLoaded', () => {
-    if (document.documentElement.clientWidth > 1025) {
-        'use strict';
+    const windowWidth = document.documentElement.clientWidth;
+    if (windowWidth >= 1026) {
         const previewMainSlider = new MainSlider({
             container: '.page',
             next: '.next',
@@ -54,6 +55,11 @@ window.addEventListener('DOMContentLoaded', () => {
             path: 'assets/question.php',
         });
         sendResourse.render();
+        const modulesMarketingAccordion = new Accordion({
+            triggers: '.module__info-show',
+            content: '.msg'
+        });
+        modulesMarketingAccordion.render();
     } else {
         console.log(document.documentElement.clientWidth);
         let inDeveloping = document.createElement('div');
@@ -66,6 +72,6 @@ window.addEventListener('DOMContentLoaded', () => {
         text-align: center;
         margin-top: 50%;
         display: block;
-        font-size: 20px;`; 
+        font-size: 20px;`;
     }
 });

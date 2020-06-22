@@ -2,7 +2,6 @@ const accordion = () => {
     function bindAccordion(contentSelector, triggerSelector) {
         const contents = document.querySelectorAll(contentSelector),
             triggers = document.querySelectorAll(triggerSelector);
-
         function hideContent(n) {
             contents.forEach(content => {
                 content.classList.add('display-none', 'fadeOutRight');

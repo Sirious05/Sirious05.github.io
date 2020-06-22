@@ -1,6 +1,6 @@
 import PostRequest from './requests';
 import ValidateInputs from './validateInputs';
-new ValidateInputs({
+const inputValidate = new ValidateInputs({
     inputsNumber: 'input[name="phone"]',
     inputsString: 'input[name="name"]',
 });
@@ -14,7 +14,9 @@ class SendResourse {
             this.forms = document.querySelectorAll(form);
             this.inputs = document.querySelectorAll(input);
             this.path = path;
-        } catch (e) {}
+        } catch (e) {
+            console.log(e.message);
+        }
     }
     clearInputs() {
         this.inputs.forEach(input => {
@@ -24,10 +26,7 @@ class SendResourse {
     init() {
         this.inputs.forEach(input => {
             input.addEventListener('input', () => {
-                new ValidateInputs({
-                    inputsNumber: 'input[name="phone"]',
-                    inputsString: 'input[name="name"]',
-                }).render();
+                inputValidate.render();
             });
         });
         this.forms.forEach(form => {
