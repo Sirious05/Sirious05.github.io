@@ -5,7 +5,6 @@ $(document).ready(function($){
         speed: 1000,
         prevArrow: '<button type="button" class="slick-prev"><img src="icons/left-arrow.svg"></button>',
         nextArrow: '<button type="button" class="slick-next"><img src="icons/right-arrow.svg"></button>',
-        infinite: true,
         fade: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -116,7 +115,7 @@ $(document).ready(function($){
             $('.page-up').fadeOut();
         } 
         if ($(window).width() <= '995') {
-            $('.page-up').remove()
+            $('.page-up').remove();
         }
     });
 
@@ -125,6 +124,7 @@ $(document).ready(function($){
         $("html, body").animate({ scrollTop: $(href).offset().top + "px" });
         return false;
     });
+
 });
 
 

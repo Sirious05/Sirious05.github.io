@@ -1,2 +1,4 @@
 import $ from './lib/lib';
-$('div').eq(2).show().html();
+'use strict';
+$('.input').val('value');
+console.log($('.input').val())

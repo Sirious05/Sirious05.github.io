@@ -1,4 +1,3 @@
-import { construct } from "core-js/fn/reflect";
 
 const dragDrop = () => {
     const inputsFiles = document.querySelectorAll('[name="upload"]'),

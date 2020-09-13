@@ -16,3 +16,4 @@ const validateInputs = () => {
     bindValidate('input[name="phone"]', 'input[name="name"]');
 };
 export default validateInputs;
+l

@@ -1,6 +1,6 @@
 import $ from '../core';
 import './modules/display';
-import './modules/classes';
+import './modules/manipulation';
 import './modules/events';
 import './modules/actions';
 export default $;

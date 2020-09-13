@@ -22,7 +22,7 @@ const slider = () => {
             });
 
         };
-        const editSlide = () => {
+        const editSlide = (n) => {
             nextArrow.addEventListener('click', () => {
                 sliderIndex++;
                 if (sliderIndex > sliderItems.length - 1) {
@@ -63,6 +63,23 @@ const slider = () => {
         currentSlide();
         editSlide();
         setInterval(infinitySlider, 6000);
+        sliderItems.forEach(item => {
+            let mc = new Hammer(item);
+            mc.on("swipeleft", function (ev) {
+                sliderIndex++;
+                if (sliderIndex > sliderItems.length - 1) {
+                    sliderIndex = 0;
+                }
+                interactionWithContent(sliderIndex);
+            });
+            mc.on("swiperight", function (ev) {
+                sliderIndex--;
+                if (sliderIndex < 0) {
+                    sliderIndex = sliderItems.length - 1;
+                }
+                interactionWithContent(sliderIndex);
+            });
+        });
     };
     bindSlider('.main-slider-item', '.slider-dots', '.slider-dot', '.prev-arrow', '.next-arrow');
     bindSlider('.feedback-slider-item', '.feedback-slider-dots', '.feedback-slider-dot', '.main-prev-btn', '.main-next-btn');

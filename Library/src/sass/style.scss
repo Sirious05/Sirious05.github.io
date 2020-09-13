@@ -3,3 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
+@import './general/base.scss';
+@import './components/ui.scss';
+@import './helpers/classes.scss';

@@ -24,7 +24,13 @@ function slider() {
 
 
     function editSlider(n) {
-        showSlider(sliderIndex = sliderIndex + n);
+        sliderIndex = sliderIndex + n;
+        if (sliderIndex > sliderItems.length - 1) {
+            sliderIndex = 0;
+        } else if (sliderIndex < 0) {
+            sliderIndex = sliderItems.length - 1;
+        }
+        showSlider(sliderIndex);
     }
     nextArrow.addEventListener('click', function (e) {
         editSlider(1);
@@ -57,8 +63,19 @@ function slider() {
         sliderItems[sliderIndex].classList.remove('display-none');
         sliderItems[sliderIndex].classList.add('display-block');
         sliderDots.forEach(item => item.classList.remove('dot-active'));
-        sliderDots[sliderIndex].classList.add('dot-active')
+        sliderDots[sliderIndex].classList.add('dot-active');
     }
-    setInterval(infifnitySlider, 3000);
+    // setInterval(infifnitySlider, 3000);
+    sliderItems.forEach(item => {
+        let mc = new Hammer(item);
+        mc.on("swipeleft", function (ev) {
+            editSlider(1);
+            console.log(1);
+        });
+        mc.on("swiperight", function (ev) {
+            editSlider(-1);
+            console.log(-1);
+        });
+    });
 }
 module.exports = slider;
