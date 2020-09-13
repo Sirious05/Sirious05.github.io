@@ -1,0 +1,19 @@
+@import "./other/reset";
+@import "./other/fonts";
+@import "./blocks/promo";
+@import "./blocks/jobs";
+@import "./blocks/peoples";
+@import "./blocks/team";
+@import "./blocks/letter";
+@import "./blocks/footer";
+
+* {
+    font-family: "Poppins", sans-serif !important;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1380px;
+    margin: 0 auto;
+}
