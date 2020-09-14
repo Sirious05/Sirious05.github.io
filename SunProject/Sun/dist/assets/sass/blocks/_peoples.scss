@@ -1,0 +1,73 @@
+.peoples {
+    padding-bottom: 30px;
+
+    &__remark {
+        width: 335px;
+        min-height: 153px;
+        color: #333333;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 22px;
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-image: linear-gradient(172deg, #ffe698 0%, #d5bc7d 100%)
+    }
+
+    &__title {
+        color: #818181;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 91px;
+    }
+
+    &__record {
+        color: #818181;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+        margin-top: 17px;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-top: 20px;
+        }
+
+        p {
+            margin-right: 40px;
+        }
+    }
+
+    &__descr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+
+        p {
+            margin-top: 40px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    &__button {
+        width: 290px;
+        height: 60px;
+        background-color: #fdbf00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 30px;
+        }
+    }
+}
