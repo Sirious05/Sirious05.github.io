@@ -7,8 +7,7 @@ const sass = require('./node_modules/gulp-sass');
 const cleanCSS = require('./node_modules/gulp-clean-css');
 const autoprefixer = require('./node_modules/gulp-autoprefixer');
 const rename = require("./node_modules/gulp-rename");
-const imagemin = require('./node_modules/gulp-imagemin');
-const htmlmin = require('./node_modules/gulp-htmlmin');
+const imagemin = require('./node_modules/gulp-imagemin')
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/*.html")

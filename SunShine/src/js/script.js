@@ -1,14 +1,13 @@
-document.querySelector('.promo__icon').addEventListener('click', () => {
-    if (document.querySelector('.promo__remark').style.display !== 'none') {
-        document.querySelector('.promo__remark').style.display = 'none';
-    } else {
-        document.querySelector('.promo__remark').style.display = 'block';
-    }
-});
-document.querySelector('.jobs-cart_border-gold').addEventListener('click', () => {
-    if (document.querySelector('.jobs__remark').style.display !== 'none') {
-        document.querySelector('.jobs__remark').style.display = 'none';
-    } else {
-        document.querySelector('.jobs__remark').style.display = 'block';
-    }
+import {
+    viewRemark
+} from './modal';
+import {
+    other
+} from './other';
+window.addEventListener('DOMContentLoaded', () => {
+    viewRemark('.jobs-card', '.jobs__remark', 'block');
+    viewRemark('.promo__icon', '.promo__remark', 'block');
+    viewRemark('.footer__link span', '.footer__remark', 'block');
+    viewRemark('.peoples__button', '.peoples__remark', 'block');
+    other();
 });

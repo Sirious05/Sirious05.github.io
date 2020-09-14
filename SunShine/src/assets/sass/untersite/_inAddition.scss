@@ -1,0 +1,44 @@
+.additional-unter {
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__img {
+        margin-right: 100px;
+    }
+
+    &__advantages {
+        h2 {
+            color: #818181;
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            color: #818181;
+            line-height: 35px;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 70px;
+
+            li {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                &:before {
+                    content: "";
+                    width: 5px;
+                    height: 5px;
+                    background-color: #fdbf00;
+                    border-radius: 100%;
+                    position: absolute;
+                    left: -15px;
+                }
+            }
+        }
+    }
+
+}
