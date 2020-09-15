@@ -13,6 +13,7 @@
 @import "./untersite/about";
 @import "./untersite/team";
 @import "./untersite/inAddition";
+@import "./blocks/burger";
 
 * {
     font-family: "Poppins", sans-serif !important;
@@ -20,6 +21,9 @@
     padding: 0;
 }
 
+body {
+    position: relative;
+}
 .container {
     max-width: 1385px;
     margin: 0 auto;
@@ -37,6 +41,20 @@
 .d-none {
     display: none !important;
 }
-img{
-    max-width:100%;
+
+img {
+    max-width: 100%;
+}
+
+div {
+    z-index: 5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    z-index: 10;
 }

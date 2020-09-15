@@ -7339,6 +7339,25 @@ function other() {
       }
     });
   });
+
+  (function () {
+    var count = 0;
+    document.querySelectorAll('.menu__btn').forEach(function (item) {
+      item.addEventListener('click', function () {
+        count++;
+
+        if (count % 2 === 0) {
+          setTimeout(function () {
+            document.querySelector('.menu__box').style.display = 'none';
+            document.querySelector('.menu__box').classList.remove('fadeInLeft', 'animated');
+          }, 400);
+        } else {
+          document.querySelector('.menu__box').style.display = 'block';
+          document.querySelector('.menu__box').classList.add('fadeInLeft', 'animated');
+        }
+      });
+    });
+  })();
 }
 
 

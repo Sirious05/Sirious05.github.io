@@ -57,6 +57,23 @@ function other() {
             }
         });
     });
+    (function () {
+        let count = 0;
+        document.querySelectorAll('.menu__btn').forEach((item) => {
+            item.addEventListener('click', () => {
+                count++;
+                if (count % 2 === 0) {
+                    setTimeout(() => {
+                        document.querySelector('.menu__box').style.display = 'none';
+                        document.querySelector('.menu__box').classList.remove('fadeInLeft', 'animated');
+                    }, 400);
+                } else {
+                    document.querySelector('.menu__box').style.display = 'block';
+                    document.querySelector('.menu__box').classList.add('fadeInLeft', 'animated');
+                }
+            });
+        });
+    })();
 }
 export {
     other

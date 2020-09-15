@@ -4,9 +4,14 @@
     background: url("../img/main/4/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
-    @media(max-width: 768px) {
-        background-position: left;
+    background-position: center center;
+    position: relative;
+    @media(max-width: 1200px) {
+        background-position: right;
+    }
+
+    @media(max-width: 576px) {
+        background-position: left
     }
     &__title {
         color: #ffffff;
