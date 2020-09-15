@@ -5,6 +5,11 @@
     .container {
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 1500px) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 
@@ -13,6 +18,11 @@
     flex-direction: column;
     min-height: 700px;
     max-width: 630px;
+
+    @media(max-width: 1500px) {
+        max-width: 1000px;
+        min-height: 500px;
+    }
 
     &__title {
         color: #818181;
@@ -38,10 +48,22 @@
     max-width: 630px;
     min-height: 700px;
 
+    @media(max-width: 1500px) {
+        max-width: 1000px;
+        min-height: 500px;
+    }
+
     &__img {
         width: 670px;
         height: 425px;
         margin-bottom: 40px;
+
+        @media(max-width: 1500px) {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 80px;
+            margin-top: 50px;
+        }
     }
 
     &__title {

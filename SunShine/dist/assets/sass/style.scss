@@ -7,8 +7,8 @@
 @import "./starter/peoples";
 @import "./starter/team";
 @import "./starter/letter";
-@import "./starter/footer";
-@import "./untersite/header";
+@import "./blocks/footer";
+@import "./blocks/header";
 @import "./untersite/promo";
 @import "./untersite/about";
 @import "./untersite/team";
@@ -36,4 +36,7 @@
 
 .d-none {
     display: none !important;
+}
+img{
+    max-width:100%;
 }

@@ -1,11 +1,23 @@
 .additional-unter {
+    padding-top: 100px;
+
 
     &__wrapper {
         display: flex;
+
+        @media(max-width: 1500px) {
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+        }
     }
 
     &__img {
         margin-right: 100px;
+        @media(max-width: 1500px) {
+            margin-right: 0;
+            margin-bottom: 100px;
+        }
     }
 
     &__advantages {

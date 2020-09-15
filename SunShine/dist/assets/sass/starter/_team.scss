@@ -1,11 +1,13 @@
 .team {
     min-height: 600px;
     padding-top: 92px;
-    background: url("../img/4/bg.png");
+    background: url("../img/main/4/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-
+    background-position: right;
+    @media(max-width: 768px) {
+        background-position: left;
+    }
     &__title {
         color: #ffffff;
         line-height: 40px;

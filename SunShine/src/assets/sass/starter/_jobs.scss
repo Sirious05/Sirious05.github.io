@@ -5,6 +5,11 @@
     &__wrapper {
         display: flex;
         justify-content: space-between;
+
+        @media (max-width: 1150px) {
+            flex-direction: column;
+            align-items: center
+        }
     }
 
     &-card {
@@ -12,6 +17,16 @@
         min-height: 320px;
         position: relative;
         line-height: 33px;
+        margin-bottom: 20px;
+
+        @media (max-width: 1150px) {
+            width: 620px;
+            background: #f0f0f0;
+        }
+
+        @media(max-width: 768px) {
+            max-width: 100%;
+        }
 
         &__wrapper {
             max-width: 220px;
@@ -22,9 +37,6 @@
             background-color: #ffffff;
         }
 
-        &_border-gold {
-            border: 2px solid #fdbf00;
-        }
 
         &_dark {
             background-color: #818181;
@@ -32,10 +44,20 @@
 
         &_gold {
             background-color: #fdbf00;
+
         }
 
         &_img {
-            background: url("../img/2/team.jpg");
+            img {
+                position: absolute;
+                max-height: 320px;
+                object-fit: cover;
+            }
+
+            @media (max-width: 1150px) {
+                width: 620px;
+            }
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -49,6 +71,7 @@
     &__button {
         width: 95px;
         height: 55px;
+        z-index: 10;
         border: 4px solid #ff0070;
         background-color: #ffffff;
         justify-content: center;
