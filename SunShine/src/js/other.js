@@ -7,6 +7,7 @@ function other() {
             delay: 4000,
         },
     });
+    let header = document.querySelector('header');
     document.querySelectorAll('.footer__link span').forEach(item => {
         let count = 0;
         item.addEventListener('click', (e) => {
@@ -49,7 +50,7 @@ function other() {
                 }
             } else {
                 item.classList.toggle('jobs-card_gold');
-                item.classList.toggle('jobs-card_dark')
+                item.classList.toggle('jobs-card_dark');
                 if (item.classList.contains('jobs-card_grey')) {
                     item.classList.remove('jobs-card_gold');
                     item.classList.remove('jobs-card_dark');
@@ -77,6 +78,19 @@ function other() {
                     document.querySelector('.menu__box').classList.add('fadeInLeft', 'animated');
                 }
             });
+        });
+        window.addEventListener('scroll', () => {
+            if (document.querySelector('.header')) {
+                if ((document.documentElement.scrollTop) > 0) {
+                    header.style.background = '#fff';
+                    header.querySelectorAll('li a').forEach(item => item.style.color = '#818181');
+                    header.querySelector('.header__img').setAttribute('src', './assets/icons/logo.png');
+                } else {
+                    header.style.background = 'transparent';
+                    header.querySelectorAll('li a').forEach(item => item.style.color = '#fff');
+                    header.querySelector('.header__img').setAttribute('src', './assets/icons/white-logo.png');
+                }
+            }
         });
     })();
 

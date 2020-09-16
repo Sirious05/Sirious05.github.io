@@ -59,10 +59,13 @@
         margin-bottom: 40px;
 
         @media(max-width: 1500px) {
-            width: 100%;
+            max-width: 100%;
+            margin-left: 15px;
+            margin-right: 15px;
             margin: 0 auto;
             margin-bottom: 80px;
             margin-top: 50px;
+            object-fit: contain;
         }
     }
 
