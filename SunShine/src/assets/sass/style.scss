@@ -18,12 +18,14 @@
 * {
     font-family: "Poppins", sans-serif !important;
     margin: 0;
-    padding: 0;
+    padding: 0; 
+    border:none;
 }
 
 body {
     position: relative;
 }
+
 .container {
     max-width: 1385px;
     margin: 0 auto;
@@ -43,18 +45,12 @@ body {
 }
 
 img {
-    max-width: 100%;
+    max-width: 100% ;
 }
 
 div {
     z-index: 5;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    z-index: 10;
+section{
+    max-width: 100%;
 }

@@ -34,8 +34,9 @@
     }
 
     @media (max-width: 650px) {
-      min-width: 300px;
+      min-width: 320px;
       max-width: 300px;
+      margin:0;
     }
 
     &__wrapper {

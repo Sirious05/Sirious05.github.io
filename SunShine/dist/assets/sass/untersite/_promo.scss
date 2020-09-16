@@ -7,13 +7,16 @@
 
         &__item {
             background-position: center center;
-            background-size:cover;
-            background-repeat:no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
             min-height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
 
+            @media(max-width:567px) {
+                width: 100%;
+            }
             @media(max-width: 768px) {
                 flex-direction: column;
 

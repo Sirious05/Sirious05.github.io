@@ -1,8 +1,10 @@
 .team-unter {
     padding-top: 100px;
-    padding-bottom: 90px;
     background-color: #f0f0f0;
-
+    text-align: center;
+    @media(max-width: 368px) {
+        background:#fff;
+    }
     &__title {
         color: #818181;
         font-size: 30px;
@@ -16,41 +18,50 @@
         justify-content: space-between;
 
         @media(max-width: 1024px) {
-            flex-direction: column;
             margin-right: 0;
             margin-left: 0;
-            align-items:center;
+            align-items: center;
+            flex-direction: column;
+            justify-self: center;
         }
 
     }
 
     &__descr-left {
-        max-width: 650px;
+
+        max-width: 550px;
         color: #818181;
         margin-left: auto;
+
+        @media(max-width: 1024px) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
         font-size: 18px;
         font-weight: 400;
         line-height: 30px;
         display: inline-block;
-        @media(max-width: 1024px) {
-            margin-right: 0;
-            margin-left: 0;
-            margin: 25px 0;
-        }
+        margin-right: 50px;
 
     }
 
     &__descr-right {
-        max-width: 650px;
+
+        max-width: 550px;
         color: #818181;
         margin-right: auto;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 30px;
+
         @media(max-width: 1024px) {
             margin-right: 0;
             margin-left: 0;
+            margin-top: 40px;
         }
+
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+
 
     }
 
@@ -62,6 +73,8 @@
     }
 
     &__card {
+        z-index: 10;
+        text-align: left;
         display: flex;
         min-height: 350px;
         width: 100%;
@@ -74,7 +87,6 @@
         @media(max-width: 768px) {
             flex-direction: column;
             align-items: center;
-            margin-right: 0;
 
         }
     }
@@ -82,20 +94,27 @@
     &__img {
         max-width: 350px;
         max-height: 350px;
+        @media(max-width: 350px) {
+            max-width: 321px;
 
+        }
     }
 
     &__content {
         display: flex;
 
         @media(max-width: 1500px) {
-            flex-direction: column;
             align-items: center;
-            margin-right: 30px;
+            display: block;
 
             &:last-child {
                 margin-right: 0;
             }
+        }
+
+        @media(max-width: 1500px) {
+            margin-right: 100px;
+
         }
 
         @media(max-width: 768px) {
@@ -120,6 +139,11 @@
             font-size: 14px;
         }
 
+        @media(max-width: 350px) {
+            max-width: 320px;
+        }
+
+
         span {
             color: #fdbf00;
             font-size: 18px;
@@ -133,6 +157,11 @@
                 position: relative;
                 display: flex;
                 align-items: center;
+
+                @media(max-width: 767px) {
+                    text-align: left;
+
+                }
 
                 &:before {
                     content: "";

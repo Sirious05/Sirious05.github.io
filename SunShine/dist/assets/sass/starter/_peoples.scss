@@ -1,6 +1,12 @@
 .peoples {
     padding-bottom: 30px;
+    @media (max-width:1450px) and (min-width:321px) {
+        padding-left: 30px;
+    }
 
+    @media(max-width:320px) {
+        padding-left: 15px
+    }
     &__remark {
         width: 335px;
         min-height: 153px;

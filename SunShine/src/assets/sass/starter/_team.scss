@@ -13,6 +13,12 @@
     @media(max-width: 576px) {
         background-position: left
     }
+    @media (max-width:1450px) and (min-width:321px) {
+        padding-left: 30px;
+    }
+    @media(max-width:320px){
+        padding-left: 15px
+    }
     &__title {
         color: #ffffff;
         line-height: 40px;
@@ -38,7 +44,6 @@
         align-items: center;
         margin-bottom: 11px;
         display: flex;
-
         &_white {
             background-color: #ffffff;
             color: #fdbf00;

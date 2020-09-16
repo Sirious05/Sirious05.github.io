@@ -21,13 +21,11 @@
     .container {
         img {
             position: absolute;
-            margin: 0 auto;
             left: 50%;
             z-index: 50;
             transform: translateX(-50%);
             top: 10px;
-            max-width: 250px;
-
+            max-width: 50%;
             @media(max-width: 768px) {
                 top: 10px;
 

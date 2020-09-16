@@ -10,8 +10,8 @@
     z-index: 120;
 
     @media(max-width: 400px) {
-        top: 0px;
-        left: 10px;
+        top: 20px;
+        left: 0px;
 
     }
 }
@@ -91,6 +91,7 @@
     text-align: center;
     background-color: #818181;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
 }
 
 .menu__item {
