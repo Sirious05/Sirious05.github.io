@@ -35,6 +35,7 @@ function other() {
         });
     });
     document.querySelectorAll('.jobs-card').forEach(item => {
+        let length = document.querySelectorAll('.jobs-card').length;
         let count = 0;
         item.addEventListener('click', (e) => {
             count++;
@@ -50,12 +51,16 @@ function other() {
                 item.classList.toggle('jobs-card_gold');
                 item.classList.toggle('jobs-card_dark')
                 if (item.classList.contains('jobs-card_grey')) {
-                    item.style.border = '1px solid #fdbf00';
                     item.classList.remove('jobs-card_gold');
                     item.classList.remove('jobs-card_dark');
                 }
             }
         });
+        if (length > 4) {
+            document.querySelectorAll('.jobs__wrapper').forEach(wrapper => {
+                wrapper.style.flexWrap = 'wrap';
+            });
+        }
     });
     (function () {
         let count = 0;
@@ -74,6 +79,7 @@ function other() {
             });
         });
     })();
+
 }
 export {
     other

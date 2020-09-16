@@ -7224,34 +7224,52 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function viewRemark(trigger, modal, state) {
+function viewRemark(trigger, modal, state, card) {
   document.querySelectorAll(modal).forEach(function (item) {
     item.style.display = 'none';
   });
-  document.querySelectorAll(trigger).forEach(function (trigger) {
-    trigger.addEventListener('click', function (e) {
-      e.preventDefault();
 
-      var _iterator = _createForOfIteratorHelper(document.querySelectorAll(modal)),
-          _step;
+  if (card) {
+    document.querySelectorAll(trigger).forEach(function (trigger, n) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(n);
 
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var item = _step.value;
-
-          if (item.style.display !== 'none') {
-            item.style.display = 'none';
-          } else {
-            item.style.display = state;
-          }
+        if (document.querySelectorAll(modal)[n].style.display !== 'none') {
+          document.querySelectorAll(modal)[n].style.display = 'none';
+          trigger.style.marginTop = '0px';
+        } else {
+          document.querySelectorAll(modal)[n].style.display = state;
+          trigger.style.marginTop = '100px';
         }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
+      });
     });
-  });
+  } else {
+    document.querySelectorAll(trigger).forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        var _iterator = _createForOfIteratorHelper(document.querySelectorAll(modal)),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var item = _step.value;
+
+            if (item.style.display !== 'none') {
+              item.style.display = 'none';
+            } else {
+              item.style.display = state;
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      });
+    });
+  }
 }
 
 
@@ -7314,6 +7332,7 @@ function other() {
     });
   });
   document.querySelectorAll('.jobs-card').forEach(function (item) {
+    var length = document.querySelectorAll('.jobs-card').length;
     var count = 0;
     item.addEventListener('click', function (e) {
       count++;
@@ -7332,12 +7351,17 @@ function other() {
         item.classList.toggle('jobs-card_dark');
 
         if (item.classList.contains('jobs-card_grey')) {
-          item.style.border = '1px solid #fdbf00';
           item.classList.remove('jobs-card_gold');
           item.classList.remove('jobs-card_dark');
         }
       }
     });
+
+    if (length > 4) {
+      document.querySelectorAll('.jobs__wrapper').forEach(function (wrapper) {
+        wrapper.style.flexWrap = 'wrap';
+      });
+    }
   });
 
   (function () {
@@ -7378,7 +7402,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', function () {
-  Object(_modal__WEBPACK_IMPORTED_MODULE_0__["viewRemark"])('.jobs-card', '.jobs__remark', 'block');
+  Object(_modal__WEBPACK_IMPORTED_MODULE_0__["viewRemark"])('.jobs-card', '.jobs__remark', 'block', true);
   Object(_modal__WEBPACK_IMPORTED_MODULE_0__["viewRemark"])('.promo__icon', '.promo__remark', 'block');
   Object(_modal__WEBPACK_IMPORTED_MODULE_0__["viewRemark"])('.footer__link span', '.footer__remark', 'block');
   Object(_modal__WEBPACK_IMPORTED_MODULE_0__["viewRemark"])('.peoples__button', '.peoples__remark', 'block');
