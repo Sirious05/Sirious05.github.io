@@ -1,3 +1,3 @@
-|Some of my projects 
+|Some of my projects|
 
   
